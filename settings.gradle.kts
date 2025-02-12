@@ -19,5 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "instagramm"
+rootProject.name = "Memento-gram"
 include(":app")
+ 

@@ -1,21 +1,20 @@
-package com.neatroots.instagramm
+package com.example.memento_gram
 
 import android.os.Bundle
-import android.os.Handler
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import kotlinx.coroutines.delay
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        window.statusBarColor = "COLOR.TRANSPARENT"
-        Handler(looper .getmainlooper()).postdelayered({
-            startActivity(intent(package.context: this, signupactivity::class.java))
-            finish()
-        }, delay(3000)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
     }
 }

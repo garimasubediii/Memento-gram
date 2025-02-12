@@ -1,4 +1,4 @@
-package com.neatroots.instagramm
+package com.example.memento_gram
 
 import org.junit.Test
 

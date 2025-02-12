@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.neatroots.instagramm"
-    compileSdk = 35
+    namespace = "com.example.memento_gram"
+    compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.neatroots.instagramm"
+        applicationId = "com.example.memento_gram"
         minSdk = 26
-        targetSdk = 35
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
