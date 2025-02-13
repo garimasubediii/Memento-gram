@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Memento-gram</string>
+    <string name="title_activity_home2">HomeActivity2</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

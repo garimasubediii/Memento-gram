@@ -1,6 +1,8 @@
 package com.example.memento_gram
 
+import android.content.Intent
 import android.os.Bundle
+import android.text.Html
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -43,6 +45,8 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
+        val text = "<font color=#000000>Aready have an Account</font> <font color=#009688>Login</font>"
+        binding.login.setText(Html.fromHtml(text))
         user=User()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -70,7 +74,8 @@ class SignUpActivity : AppCompatActivity() {
                         Firebase.firestore.collection(USER_NODE)
                             .document(Firebase.auth.currentUser!!.uid).set(user)
                             .addOnSuccessListener {
-                                Toast.makeText(this@SignUpActivity, "Login Successful", Toast.LENGTH_SHORT).show()
+                                startActivity(Intent(this@SignUpActivity,HomeActivity2::class.java))
+                                finish()
                             }
 
                     }else{
@@ -84,6 +89,10 @@ class SignUpActivity : AppCompatActivity() {
             launcher.launch("image/*")
         }
         //Firebase storage shit0 ends here
+        binding.login.setOnClickListener {
+            startActivity(Intent(this@SignUpActivity, LoginActivity::class.java))
+            finish()
+        }
     }
 }
 

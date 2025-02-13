@@ -1,0 +1,48 @@
+package com.example.memento_gram
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.memento_gram.Models.User
+import com.example.memento_gram.databinding.ActivityLoginBinding
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
+
+class LoginActivity : AppCompatActivity() {
+    private val binding by lazy {
+        ActivityLoginBinding.inflate(layoutInflater)
+    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_login)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+        binding.loginBtn.setOnClickListener {
+            if (binding.email.editText?.text.toString().equals("") or
+                binding.password.editText?.text.toString().equals("")
+                ) {
+                Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show()
+            } else {
+                var user=User(binding.email.editText?.text.toString(),binding.password.editText?.text.toString())
+
+                Firebase.auth.signInWithEmailAndPassword(user.email!!, user.password!!).addOnCompleteListener{
+                    if(it.isSuccessful){
+                        startActivity(Intent(this@LoginActivity, HomeActivity2::class.java))
+                        finish()
+                    }else{
+                        Toast.makeText(this@LoginActivity, it.exception?.localizedMessage, Toast.LENGTH_SHORT).show()
+                    }
+            }
+            }
+        }
+
+    }
+}
