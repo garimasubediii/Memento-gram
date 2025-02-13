@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.memento_gram.databinding.ActivitySignUpBinding
+import com.google.firebase.auth.FirebaseAuth
+
 
 class SignUpActivity : AppCompatActivity() {
     val binding by lazy {
@@ -30,6 +32,22 @@ class SignUpActivity : AppCompatActivity() {
                 Toast.makeText(this@SignUpActivity,"Please fill all the fields", Toast.LENGTH_SHORT).show()
             }else{
 
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(
+                    binding.email.editText?.text.toString(),
+                    binding.password.editText?.text.toString()
+                ).addOnCompleteListener{
+                    result ->
+
+                    if(result.isSuccessful) {
+                        Toast.makeText(
+                            this@SignUpActivity,
+                            "Login Successfully",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }else{
+                        Toast.makeText(this@SignUpActivity,result.exception?.localizedMessage, Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
         }
     }
