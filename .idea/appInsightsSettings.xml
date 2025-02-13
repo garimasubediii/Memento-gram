@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.memento_gram" />
+                  <option name="mobileSdkAppId" value="1:1089036132621:android:4ffea9c1263c6ead63d044" />
+                  <option name="projectId" value="memento236" />
+                  <option name="projectNumber" value="1089036132621" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

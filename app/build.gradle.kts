@@ -6,7 +6,9 @@ plugins {
 android {
     namespace = "com.example.memento_gram"
     compileSdk = 35
-
+    buildFeatures {
+        viewBinding = true
+    }
     defaultConfig {
         applicationId = "com.example.memento_gram"
         minSdk = 26
