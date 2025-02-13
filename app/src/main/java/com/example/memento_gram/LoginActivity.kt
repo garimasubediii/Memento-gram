@@ -8,28 +8,30 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.memento_gram.Models.User
+import com.example.memento_gram.SignUpActivity
 import com.example.memento_gram.databinding.ActivityLoginBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 
 class LoginActivity : AppCompatActivity() {
-    private val binding by lazy {
+    val binding by lazy {
         ActivityLoginBinding.inflate(layoutInflater)
     }
+    lateinit var user: User
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_login)
+        setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        binding.loginBtn.setOnClickListener {
+        binding.SigninBtn.setOnClickListener {
             if (binding.email.editText?.text.toString().equals("") or
                 binding.password.editText?.text.toString().equals("")
                 ) {
-                Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@LoginActivity, "Please fill all the fields", Toast.LENGTH_SHORT).show()
             } else {
                 var user=User(binding.email.editText?.text.toString(),binding.password.editText?.text.toString())
 
@@ -43,6 +45,9 @@ class LoginActivity : AppCompatActivity() {
             }
             }
         }
-
+        binding.sBtn.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, SignUpActivity::class.java))
+            finish()
+        }
     }
 }

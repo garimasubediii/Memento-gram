@@ -56,7 +56,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/login_btn"
+        android:id="@+id/Signin_btn"
         style="@style/Widget.Material3.Button.Icon"
         android:layout_width="0dp"
         android:layout_height="55dp"
@@ -69,21 +69,19 @@
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <Button
-        android:id="@+id/sign_up_btn"
+        android:id="@+id/s_btn"
         style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="0dp"
         android:layout_height="55dp"
-        android:layout_marginTop="50dp"
-        android:textColor="@color/primary"
-        android:elevation="20dp"
+        android:layout_marginTop="148dp"
         android:shadowColor="@android:color/transparent"
         android:text="Create new account"
+        android:textColor="@color/primary"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/login_btn"
-        app:layout_constraintStart_toStartOf="@+id/login_btn"
-        app:layout_constraintTop_toBottomOf="@+id/login_btn"
-        app:layout_constraintVertical_bias="0.59000003" />
+        app:layout_constraintEnd_toEndOf="@+id/Signin_btn"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="@+id/Signin_btn"
+        app:layout_constraintTop_toBottomOf="@+id/Signin_btn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
